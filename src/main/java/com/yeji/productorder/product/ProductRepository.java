@@ -1,18 +1,7 @@
 package com.yeji.productorder.product;
 
-import java.util.HashMap;
-import java.util.Map;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-class ProductRepository {
+interface ProductRepository extends JpaRepository<Product, Long> {
 
-    private Map<Long, Product> presistence = new HashMap<>();
-    private Long sequence = 0L;
-
-    public void save ( Product product ) {
-
-        product.assignId( ++sequence );
-        presistence.put( product.getId(), product );
-    }
 }
